@@ -21,16 +21,18 @@ main(){
 
     echo $res
 
-#   I thought this community solution was very elegant, so im including it, credit to https://github.com/patbl
-#
-#   words="${1//[^a-zA-Z]/ }"
-#   acronym=""
-#
-#   for word in $words; do
-#       acronym="$acronym${word:0:1}"
-#   done
-#
-#   echo "${acronym^^}"
+    : '
+    I thought this community solution was very elegant, so im including it, credit to https://github.com/patbl
+
+    words="${1//[^a-zA-Z]/ }"
+    acronym=""
+
+    for word in $words; do
+        acronym="$acronym${word:0:1}"
+    done
+
+    echo "${acronym^^}"
+    '
 }
 
 main $@
