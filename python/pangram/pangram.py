@@ -3,5 +3,11 @@ from collections import OrderedDict
 import re
 
 def is_pangram(sentence):
-    regex = re.compile('[^a-zA-Z]')
-    return ''.join(sorted(OrderedDict.fromkeys(regex.sub('', sentence.lower())))) == ascii_lowercase
+    let = {}
+    f_sen = filter(lambda c: c.isalpha(), sentence.lower())
+    
+    for c in f_sen:
+        if c not in let:
+            let[c] = 1
+
+    return len(let) == len(ascii_lowercase)
