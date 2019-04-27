@@ -1,6 +1,4 @@
 from string import ascii_lowercase
-from collections import OrderedDict
-import re
 
 def is_pangram(sentence):
     let = {}
