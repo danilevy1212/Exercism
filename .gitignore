@@ -104,11 +104,15 @@ venv.bak/
 .mypy_cache/
 
 # node
+.eslintrc
 node_modules/
 .node_modules/
 *.config
 yarn.lock
 package-lock.json
 
-#.exercism
+# .exercism
 .exercism/
+
+# .vscode
+.vscode
