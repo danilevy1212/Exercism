@@ -108,26 +108,26 @@ main(){
 
 		declare -a input=( $tmp )
 		
-			for item in ${input[@]}; do
-				[[ "$item" =~ [0-9] ]] && { push "$item"; continue; }
+		for item in ${input[@]}; do
+			[[ "$item" =~ [0-9] ]] && { push "$item"; continue; }
 
-				[[ ${inst["$item"]+_} ]] || { echo "undefined operation: $item" >&2; exit 1; }
-				
-				case ${inst[$item]} in
-					'add'|'sub'|'mult'|'div'|'swap'|'over')
-						(( "${#stack[@]}" == 0 )) && { echo "empty stack" >&2; exit 1; }  
-						(( "${#stack[@]}" < 2 )) && { echo "only one value on the stack" >&2; exit 1; }
-						"${inst[$item]}"
-						;;
-					'dup'|'pop')
-						(( "${#stack[@]}" == 0 )) && { echo "empty stack" >&2; exit 1; }  
-						"${inst[$item]}"
-						;;
-					*)
-						echo "undefined operation: $item" >&2
-						exit 1
-						;;
-				esac
+			[[ ${inst["$item"]+_} ]] || { echo "undefined operation: $item" >&2; exit 1; }
+			
+			case ${inst[$item]} in
+				'add'|'sub'|'mult'|'div'|'swap'|'over')
+					(( "${#stack[@]}" == 0 )) && { echo "empty stack" >&2; exit 1; }  
+					(( "${#stack[@]}" < 2 )) && { echo "only one value on the stack" >&2; exit 1; }
+					"${inst[$item]}"
+					;;
+				'dup'|'pop')
+					(( "${#stack[@]}" == 0 )) && { echo "empty stack" >&2; exit 1; }  
+					"${inst[$item]}"
+					;;
+				*)
+					echo "undefined operation: $item" >&2
+					exit 1
+					;;
+			esac
 		done
     done < "${1:-/dev/stdin}"
 
