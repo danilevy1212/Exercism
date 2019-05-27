@@ -36,7 +36,7 @@ processMacro(){
 			      exit 1
 		    else
 			      macro[${arr[1]}]=`macroExtender "${arr[1]}" 0 $(for (( j=2; j<${#arr[@]}-1; j++ )); do echo "${arr[$j]}"; done)` ||
-                { echo "illegal self-referencing expression"; exit 1; }
+                { echo "illegal self-referencing expression" >&2; exit 1; }
 		    fi
     fi
 }
