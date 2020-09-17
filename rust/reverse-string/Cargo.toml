@@ -1,8 +1,8 @@
 [dependencies]
-unicode-reverse = { version = "1.0.8", optional = true }
+unicode-segmentation = "1.6.0"
 
 [features]
-grapheme = ["unicode-reverse"]
+grapheme = []
 
 [package]
 edition = "2018"
